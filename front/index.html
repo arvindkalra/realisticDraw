@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Draw</title>
+    <style>
+        .colors{
+            width: auto;
+            height: 10vh;
+            border-bottom-width: 2px;
+            border-bottom-style: dotted;
+            border-bottom-color: darkgray;
+            padding: 1%;
+        }
+        .one{
+            margin: 0 0.6%;
+            display:inline-block;
+            height: inherit;
+            width: 17%;
+            cursor: pointer;
+            position: relative;
+            z-index: 100;
+        }
+        .red:hover .cover1{
+                display: inline-block;
+        }
+
+        .black:hover .cover2{
+            display: inline-block;
+        }
+
+        .blue:hover .cover3{
+            display: inline-block;
+        }
+
+        .green:hover .cover4{
+            display: inline-block;
+        }
+
+        .yellow:hover .cover5{
+            display: inline-block;
+        }
+
+        .cover1, .cover2, .cover3, .cover4, .cover5{
+            display: none;
+            width:100%;
+            height: inherit;
+            background-color: darkgray;
+            opacity: 0.5;
+        }
+        .canvasbox{
+            margin-left: 0.3%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width:99%;
+            height: 98vh;
+            border-width: 1px;
+            border-style: solid;
+            border-color: darkgray;
+        }
+
+        .canvasbox:hover{
+            border-width: 2px;
+            border-style: solid;
+            border-color: #1A0000;
+        }
+        .whiteboard{
+            height: inherit;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="colors">
+        <div class="red one" style="background-color: #ff0e09">
+            <div class="cover1"></div>
+        </div>
+        <div class="black one" style="background-color: black;">
+            <div class="cover2"></div>
+        </div>
+        <div class="blue one" style="background-color: blue;">
+            <div class="cover3"></div>
+        </div>
+        <div class="green one" style="background-color: green;">
+            <div class="cover4"></div>
+        </div>
+        <div class="yellow one" style="background-color: yellow;">
+            <div class="cover5"></div>
+        </div>
+    </div>
+
+<div class="canvasbox">
+    <canvas class="whiteboard" id="whiteboard"></canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
