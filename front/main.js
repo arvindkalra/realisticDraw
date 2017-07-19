@@ -3,11 +3,10 @@
  */
 
 var socket = io();
-var username = prompt("Enter You Your Name...");
 $(function () {
     var drawing = false;
 
-    socket.emit('username', username);
+    socket.emit('username', "");
 
     socket.on('draw', otherDraw);
 
@@ -39,7 +38,7 @@ $(function () {
     canvas.addEventListener('mouseout', mousebtnreleased);
     canvas.addEventListener('mousemove',throttle(mousemoving,10));
 
-    onResize();
+    setSizeofCanvas();
     var curr = {
         color : "black"
     };
@@ -89,8 +88,6 @@ $(function () {
         var newx = e.clientX;
         var newy = e.clientY;
 
-        console.log("From " + prevx + ", " + prevy);
-        console.log("Moving" + newx + ", " + newy);
         if(!drawing){
             return;
         }
@@ -115,13 +112,12 @@ $(function () {
     }
 
     function mousbtnpressed(e) {
-        console.log("Pressed at " + e.clientX + ", " + e.clientY);
         drawing = true;
         curr.curx = e.clientX;
         curr.cury = e.clientY;
     }
 
-    function onResize() {
+    function setSizeofCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
