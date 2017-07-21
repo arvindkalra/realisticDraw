@@ -32,6 +32,6 @@ io.on('connection', function (socket) {
 
     app.use('/', express.static('front'));
     
-    server.listen(port, function () {
+    server.listen(port , function () {
         console.log("Server Listening on LocalHost " + port);
     });
